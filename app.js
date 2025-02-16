@@ -9,25 +9,33 @@ function agregarAmigo(){
     if (/^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/.test(amigo)){
         if(!amigos.includes(amigo)){
             amigos.push(amigo);
+            mostrarAmigosGradualmente(amigos);
         }else{
             alert("Ese nombre ya está en la lista.");
         }
     } else{
         if(amigo.length===0){
-            alert("Por favor, inserte un nombre.")
+            alert("Por favor, inserte un nombre.");
         }else{
-            alert("El nombre contiene caracteres no válidos.")
+            alert("El nombre contiene caracteres no válidos.");
         }
     }
     limpiarEntrada();
     return;
 }
 
-
 function limpiarEntrada(){
     document.getElementById('amigo').value ="";
+    return;
 }
 
-
-
-
+function mostrarAmigosGradualmente(amigos) {
+    let lista = document.getElementById("listaAmigos");
+    lista.innerHTML = "";
+    for(let i=0; i<amigos.length; i++){
+        let li = document.createElement('li');
+        li.textContent = amigos[i];
+        lista.appendChild(li);
+    }
+    return;
+}
