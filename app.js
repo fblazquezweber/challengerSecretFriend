@@ -39,3 +39,22 @@ function mostrarAmigosGradualmente(amigos) {
     }
     return;
 }
+
+function aleatorio(){
+    if (amigos.length === 0){
+        alert("Antes de sortear amigos se deben agregar a la lista");
+        return null;
+    } else{
+        let numeroAleatorio = Math.floor(Math.random()*(amigos.length));
+        return numeroAleatorio;
+    }
+}
+
+function sortearAmigo(){
+    let lista = document.getElementById('resultado');
+    let indice = aleatorio();
+    if (indice !== null){
+        lista.innerHTML = "El amigo secreto sorteado es: "+amigos[indice];
+    }
+    return;
+}
